@@ -1,0 +1,42 @@
+local api = vim.api
+
+
+local M = {}
+
+local function count_lines(ascii)
+   local lines = {}
+   local line_start = 1
+   for i=1,#ascii do
+      if string.sub(ascii, i, i) == '\n' then
+         local this_line = string.sub(ascii, line_start, i-1)
+         line_start = i+1
+         table.insert(lines, this_line)
+      end
+   end
+   return lines
+end
+
+M['default_ascii'] = [[
+  _   _        __      _______ __  __ 
+ | \ | |       \ \    / /_   _|  \/  |
+ |  \| | ___  __\ \  / /  | | | \  / |
+ | . ` |/ _ \/ _ \ \/ /   | | | |\/| |
+ | |\  |  __/ (_) \  /   _| |_| |  | |
+ |_| \_|\___|\___/ \/   |_____|_|  |_|
+
+]]
+
+
+M['set_background_ascii'] = function(ascii)
+   local buf = vim.api.nvim_create_buf(true, true) 
+   local height = vim.api.nvim_get_option('columns')
+   local width = vim.api.nvim_get_option('lines')
+   local lines = count_lines(ascii) 
+   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+   vim.api.nvim_buf_set_option(buf, 'modifiable', false)
+   local win = api.nvim_get_current_win()
+   api.nvim_set_current_buf(buf)
+end
+
+return M
+
