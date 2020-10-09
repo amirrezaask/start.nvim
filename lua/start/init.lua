@@ -26,12 +26,19 @@ M['default_ascii'] = [[
 
 ]]
 
+local function start_point(width, height, lines)
+   local h = math.ceil(height - #lines / 2)
+   local w = math.ceil(width - #lines[1] / 2)
+   return w,h
+end
+
 
 M['set_background_ascii'] = function(ascii)
    local buf = vim.api.nvim_create_buf(true, true) 
    local height = vim.api.nvim_get_option('columns')
    local width = vim.api.nvim_get_option('lines')
    local lines = count_lines(ascii) 
+
    vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
    vim.api.nvim_buf_set_option(buf, 'modifiable', false)
    local win = api.nvim_get_current_win()
