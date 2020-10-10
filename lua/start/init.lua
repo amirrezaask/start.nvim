@@ -35,11 +35,18 @@ M['default_ascii_2'] = [[
 /_/ |_/\___/\____/|___/_/_/ /_/ /_/ 
 
 ]]
+
+M['neovim_is_awesome'] = [[
+ _   _                 _             _        ___                                         
+| \ | |               (_)           (_)      / _ \                                        
+|  \| | ___  _____   ___ _ __ ___    _ ___  / /_\ \_      _____  ___  ___  _ __ ___   ___ 
+| . ` |/ _ \/ _ \ \ / / | '_ ` _ \  | / __| |  _  \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \
+| |\  |  __/ (_) \ V /| | | | | | | | \__ \ | | | |\ V  V /  __/\__ \ (_) | | | | | |  __/
+\_| \_/\___|\___/ \_/ |_|_| |_| |_| |_|___/ \_| |_/ \_/\_/ \___||___/\___/|_| |_| |_|\___|
+]]
 local function start_point(width, height, ascii_col, ascii_lines)
-   local h = math.ceil(height /2 ) - (ascii_lines / 2)
-   local w = math.ceil(width /2 ) - ( ascii_col / 2)
-   print(string.format('start width %s', w))
-   print(string.format('start height', h))
+   local h = math.floor((height /2) - (ascii_lines / 2))
+   local w = math.floor((width /2) - (ascii_col / 2))
    return w,h
 end
 
@@ -57,10 +64,7 @@ M['set_background_ascii'] = function(ascii)
    local lines = string_to_lines_table(ascii) 
    local ascii_col = #lines[1]
    local ascii_lines = #lines
-   print(string.format("ascii col %s", ascii_col))
-   print(string.format("ascii row %s", ascii_lines))
    local start_col, start_row = start_point(width, height, ascii_col, ascii_lines)
-   
    if vim.fn.argc() < 1 then
       local buf = vim.api.nvim_create_buf(true, true) 
       for i, _ in ipairs(lines) do
