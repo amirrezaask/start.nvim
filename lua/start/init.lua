@@ -49,6 +49,7 @@ M['set_background_ascii'] = function(ascii)
       local buf = vim.api.nvim_create_buf(true, true) 
       vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
       vim.api.nvim_buf_set_option(buf, 'modifiable', false)
+      vim.api.nvim_buf_set_option(buf, 'buflisted', false)
       local win = api.nvim_get_current_win()
       api.nvim_set_current_buf(buf)
    end
