@@ -16,7 +16,7 @@ local function count_lines(ascii)
    return lines
 end
 
-M['default_ascii'] = [[
+M['default_ascii_1'] = [[
   _   _        __      _______ __  __ 
  | \ | |       \ \    / /_   _|  \/  |
  |  \| | ___  __\ \  / /  | | | \  / |
@@ -26,6 +26,14 @@ M['default_ascii'] = [[
 
 ]]
 
+M['default_ascii_2'] = [[
+
+   / | / /__  ____| |  / (_)___ ___ 
+  /  |/ / _ \/ __ \ | / / / __ `__ \
+ / /|  /  __/ /_/ / |/ / / / / / / /
+/_/ |_/\___/\____/|___/_/_/ /_/ /_/ 
+
+]]
 local function start_point(width, height, lines)
    local h = math.ceil(height - #lines / 2)
    local w = math.ceil(width - #lines[1] / 2)
