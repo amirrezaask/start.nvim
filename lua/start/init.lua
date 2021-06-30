@@ -18,7 +18,7 @@ local function string_to_lines_table(ascii)
 end
 
 M['default_ascii_1'] = [[
-  _   _        __      _______ __  __ 
+  _   _        __      _______ __  __
  | \ | |       \ \    / /_   _|  \/  |
  |  \| | ___  __\ \  / /  | | | \  / |
  | . ` |/ _ \/ _ \ \/ /   | | | |\/| |
@@ -28,18 +28,16 @@ M['default_ascii_1'] = [[
 ]]
 
 M['default_ascii_2'] = [[
-
-   / | / /__  ____| |  / (_)___ ___ 
+   /‾| /‾/__  ____|‾|  /‾(_)___ ___
   /  |/ / _ \/ __ \ | / / / __ `__ \
  / /|  /  __/ /_/ / |/ / / / / / / /
-/_/ |_/\___/\____/|___/_/_/ /_/ /_/ 
-
+/_/ |_/\___/\____/|___/_/_/ /_/ /_/
 ]]
 
 M['neovim_is_awesome'] = [[
- _   _                 _             _        ___                                         
-| \ | |               (_)           (_)      / _ \                                        
-|  \| | ___  _____   ___ _ __ ___    _ ___  / /_\ \_      _____  ___  ___  _ __ ___   ___ 
+ _   _                 _             _        ___
+| \ | |               (_)           (_)      / _ \
+|  \| | ___  _____   ___ _ __ ___    _ ___  / /_\ \_      _____  ___  ___  _ __ ___   ___
 | . ` |/ _ \/ _ \ \ / / | '_ ` _ \  | / __| |  _  \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \
 | |\  |  __/ (_) \ V /| | | | | | | | \__ \ | | | |\ V  V /  __/\__ \ (_) | | | | | |  __/
 \_| \_/\___|\___/ \_/ |_|_| |_| |_| |_|___/ \_| |_/ \_/\_/ \___||___/\___/|_| |_| |_|\___|
@@ -53,27 +51,27 @@ M['location'] = {
 }
 
 local function str_repeat(str, number)
-   s = ""
-   for i=1,number do
+   local s = ""
+   for _=1,number do
       s = s .. str
    end
-   return s 
+   return s
 end
 
-M['set_background_ascii'] = function(loc, ascii)
+M['set_background_ascii'] = function(ascii)
    local height = vim.api.nvim_get_option('lines')
    local width = vim.api.nvim_get_option('columns')
-   local lines = string_to_lines_table(ascii) 
+   local lines = string_to_lines_table(ascii)
    local ascii_col = #lines[1]
    local ascii_lines = #lines
-   local start_col, start_row = loc(width, height, ascii_col, ascii_lines)
+   local start_col, start_row = M.location.center(width, height, ascii_col, ascii_lines)
    if vim.fn.argc() < 1 then
-      local buf = vim.api.nvim_create_buf(true, true) 
+      local buf = vim.api.nvim_create_buf(true, true)
       for i, _ in ipairs(lines) do
          lines[i] = (str_repeat(' ', start_col)) .. (lines[i])
       end
       local new_lines = {}
-      for i=1,start_row do
+      for _=1,start_row do
          table.insert(new_lines, '')
       end
       for _, l in ipairs(lines) do
