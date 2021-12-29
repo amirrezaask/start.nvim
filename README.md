@@ -13,6 +13,7 @@ use { 'amirrezaask/start.nvim' }
 ```
 
 # Configuration
+You need to change "theme" for the name of the theme you want (themes are listed on THEMES.txt)
 ```vim
-lua require'start'.set_background_ascii(require'start'.neovim_is_awesome)
+lua require'start'.set_background_ascii(require'start'.theme)
 ```
