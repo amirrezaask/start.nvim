@@ -1,23 +1,6 @@
-local api = vim.api
+Theme index for start.nvim
 
-
-local M = {}
-
-
-local function string_to_lines_table(ascii)
-   local lines = {}
-   local line_start = 1
-   for i=1,#ascii do
-      if string.sub(ascii, i, i) == '\n' then
-         local this_line = string.sub(ascii, line_start, i-1)
-         line_start = i+1
-         table.insert(lines, this_line)
-      end
-   end
-   return lines
-end
-
-M['added_neovim_1'] = [[
+added_neovim_1 :
 .__   __.  _______   ______   ____    ____  __  .___  ___.
 |  \ |  | |   ____| /  __  \  \   \  /   / |  | |   \/   |
 |   \|  | |  |__   |  |  |  |  \   \/   /  |  | |  \  /  |
@@ -25,9 +8,14 @@ M['added_neovim_1'] = [[
 |  |\   | |  |____ |  `--'  |    \    /    |  | |  |  |  |
 |__| \__| |_______| \______/      \__/     |__| |__|  |__|
 
+default_ascii_1 :
+   /‾| /‾/__  ____|‾|  /‾(_)___ ___
+  /  |/ / _ \/ __ \ | / / / __ `__ \
+ / /|  /  __/ /_/ / |/ / / / / / / /
+/_/ |_/\___/\____/|___/_/_/ /_/ /_/
 ]]
 
-M['default_ascii_1'] = [[
+default_ascii_2 :
   _   _        __      _______ __  __
  | \ | |       \ \    / /_   _|  \/  |
  |  \| | ___  __\ \  / /  | | | \  / |
@@ -35,45 +23,31 @@ M['default_ascii_1'] = [[
  | |\  |  __/ (_) \  /   _| |_| |  | |
  |_| \_|\___|\___/ \/   |_____|_|  |_|
 
-]]
-
-M['default_ascii_2'] = [[
-   /‾| /‾/__  ____|‾|  /‾(_)___ ___
-  /  |/ / _ \/ __ \ | / / / __ `__ \
- / /|  /  __/ /_/ / |/ / / / / / / /
-/_/ |_/\___/\____/|___/_/_/ /_/ /_/
-]]
-
-M['neovim_is_awesome'] = [[
+neovim_is_awesome :
  _   _                 _             _        ___
 | \ | |               (_)           (_)      / _ \
 |  \| | ___  _____   ___ _ __ ___    _ ___  / /_\ \_      _____  ___  ___  _ __ ___   ___
 | . ` |/ _ \/ _ \ \ / / | '_ ` _ \  | / __| |  _  \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \
 | |\  |  __/ (_) \ V /| | | | | | | | \__ \ | | | |\ V  V /  __/\__ \ (_) | | | | | |  __/
 \_| \_/\___|\___/ \_/ |_|_| |_| |_| |_|___/ \_| |_/ \_/\_/ \___||___/\___/|_| |_| |_|\___|
-]]
 
-M['neovim_wetletter'] = [[
+neovim_wetletter :
  .-. .-.,---.   .---..-.   .-.,-.         
  |  \| || .-'  / .-. )\ \ / / |(||\    /| 
  |   | || `-.  | | |(_)\ V /  (_)|(\  / | 
  | |\  || .-'  | | | |  ) /   | |(_)\/  | 
  | | |)||  `--.\ `-' / (_)    | || \  / | 
  /(  (_)/( __.' )---'         `-'| |\/| | 
-(__)   (__)    (_)               '-'  '-' 
-]]
 
-M['neovim_varsity'] = [[
+neovim_varsity :
  ____  _____                         _                
 |_   \|_   _|                       (_)               
   |   \ | |  .---.   .--.   _   __  __   _ .--..--.   
   | |\ \| | / /__\\/ .'`\ \[ \ [  ][  | [ `.-. .-. |  
  _| |_\   |_| \__.,| \__. | \ \/ /  | |  | | | | | |  
 |_____|\____|'.__.' '.__.'   \__/  [___][___||__||__] 
-                                                      
-]]
 
-M['neovim_twisted'] = [[
+neovim_twisted :
   __   __    _____   _____     _     _   __    __    __   
  /_/\ /\_\ /\_____\ ) ___ (   /_/\ /\_\ /\_\  /_/\  /\_\  
  ) ) \ ( (( (_____// /\_/\ \  ) ) ) ( ( \/_/  ) ) \/ ( (  
@@ -81,10 +55,8 @@ M['neovim_twisted'] = [[
 \ \ \   / // /__/_\ \ )_/ / /\ \ \_/ / // / /\ \ \\// / / 
  )_) \ (_(( (_____\\ \/_\/ /  \ \   / /( (_(  )_) )( (_(  
  \_\/ \/_/ \/_____/ )_____(    \_\_/_/  \/_/  \_\/  \/_/  
-                                                          
-]]
 
-M['neovim_this'] = [[
+neovim_this :
  ▄▀▀▄ ▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▀▀▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀█▀▄    ▄▀▀▄ ▄▀▄ 
 █  █ █ █ ▐  ▄▀   ▐ █      █ █   █    █ █   █  █  █  █ ▀  █ 
 ▐  █  ▀█   █▄▄▄▄▄  █      █ ▐  █    █  ▐   █  ▐  ▐  █    █ 
@@ -93,9 +65,7 @@ M['neovim_this'] = [[
 █    ▐    █    ▐                       █       █ █    █    
 ▐         ▐                            ▐       ▐ ▐    ▐    
 
-]]
-
-M['neovim_sweet'] = [[
+neovim_sweet :
                                          .-.                 
  ___ .-.     .--.     .--.    ___  ___  ( __)  ___ .-. .-.   
 (   )   \   /    \   /    \  (   )(   ) (''") (   )   '   \  
@@ -106,10 +76,8 @@ M['neovim_sweet'] = [[
  | |  | |  |  .'.-. | '  | |  ' '  ; '   | |   | |  | |  | | 
  | |  | |  '  `-' / '  `-' /   \ `' /    | |   | |  | |  | | 
 (___)(___)  `.__.'   `.__.'     '_.'    (___) (___)(___)(___)
-                                                             
-]]
 
-M['neovim_swampland'] = [[
+neovim_swampland :
  ___   __    ______   ______   __   __   ________  ___ __ __     
 /__/\ /__/\ /_____/\ /_____/\ /_/\ /_/\ /_______/\/__//_//_/\    
 \::\_\\  \ \\::::_\/_\:::_ \ \\:\ \\ \ \\__.::._\/\::\| \| \ \   
@@ -117,10 +85,8 @@ M['neovim_swampland'] = [[
   \:. _    \ \\::___\/_\:\ \ \ \\:\_/.:\ \ _\::\ \__\:.\-/\  \ \ 
    \. \`-\  \ \\:\____/\\:\_\ \ \\ ..::/ //__\::\__/\\. \  \  \ \
     \__\/ \__\/ \_____\/ \_____\/ \___/_( \________\/ \__\/ \__\/
-                                                                 
-]]
 
-M['neovim_srelif'] = [[
+neovim_srelif :
 __/\\\\\_____/\\\______________________________________________________________________        
  _\/\\\\\\___\/\\\______________________________________________________________________       
   _\/\\\/\\\__\/\\\_____________________________________________/\\\_____________________      
@@ -131,9 +97,7 @@ __/\\\\\_____/\\\_______________________________________________________________
        _\/\\\___\//\\\\\__\//\\\\\\\\\\__\///\\\\\/______\//\\\_____\/\\\_\/\\\__\/\\\__\/\\\_ 
         _\///_____\/////____\//////////_____\/////_________\///______\///__\///___\///___\///__
 
-]]
-
-M['neovim_poison'] = [[
+neovim_poison :
                                                           
 @@@  @@@  @@@@@@@@   @@@@@@   @@@  @@@  @@@  @@@@@@@@@@   
 @@@@ @@@  @@@@@@@@  @@@@@@@@  @@@  @@@  @@@  @@@@@@@@@@@  
@@ -145,77 +109,23 @@ M['neovim_poison'] = [[
 :!:  !:!  :!:       :!:  !:!   ::!!:!   :!:  :!:     :!:  
  ::   ::   :: ::::  ::::: ::    ::::     ::  :::     ::   
 ::    :   : :: ::    : :  :      :      :     :      :    
-                                                          
-]]
 
-M['neovim_serifcap'] = [[
+neovim_serifcap :
  _  _  ___   __  _  _  __  __  __ 
 ( \( )(  _) /  \( )( )(  )(  \/  )
  )  (  ) _)( () )\\//  )(  )    ( 
 (_)\_)(___) \__/ (__) (__)(_/\/\_)
 
-]]
-
-M['neovim_sblood'] = [[
+neovim_sblood :
  @@@  @@@ @@@@@@@@  @@@@@@  @@@  @@@ @@@ @@@@@@@@@@ 
  @@!@!@@@ @@!      @@!  @@@ @@!  @@@ @@! @@! @@! @@!
  @!@@!!@! @!!!:!   @!@  !@! @!@  !@! !!@ @!! !!@ @!@
  !!:  !!! !!:      !!:  !!!  !: .:!  !!: !!:     !!:
  ::    :  : :: :::  : :. :     ::    :    :      :  
 
-]]
-
-M['neovim_script'] = [[
+neovim_script :
  , _                                
 /|/ \                 o             
  |   |   _   __           _  _  _   
  |   |  |/  /  \_|  |_|  / |/ |/ |  
  |   |_/|__/\__/  \/  |_/  |  |  |_/
-                                    
-]]                                   
-
-M['location'] = {
-   center = function(width, height, ascii_col, ascii_lines)
-      local h = math.floor((height /2) - (ascii_lines / 2))
-      local w = math.floor((width /2) - (ascii_col / 2))
-      return w,h
-   end
-}
-
-local function str_repeat(str, number)
-   local s = ""
-   for _=1,number do
-      s = s .. str
-   end
-   return s
-end
-
-M['set_background_ascii'] = function(ascii)
-   local height = vim.api.nvim_get_option('lines')
-   local width = vim.api.nvim_get_option('columns')
-   local lines = string_to_lines_table(ascii)
-   local ascii_col = #lines[1]
-   local ascii_lines = #lines
-   local start_col, start_row = M.location.center(width, height, ascii_col, ascii_lines)
-   if vim.fn.argc() < 1 then
-      local buf = vim.api.nvim_create_buf(true, true)
-      for i, _ in ipairs(lines) do
-         lines[i] = (str_repeat(' ', start_col)) .. (lines[i])
-      end
-      local new_lines = {}
-      for _=1,start_row do
-         table.insert(new_lines, '')
-      end
-      for _, l in ipairs(lines) do
-         table.insert(new_lines, l)
-      end
-      vim.api.nvim_buf_set_lines(buf, 0, -1, false, new_lines)
-      vim.api.nvim_buf_set_option(buf, 'modifiable', false)
-      vim.api.nvim_buf_set_option(buf, 'buflisted', false)
-      local win = api.nvim_get_current_win()
-      api.nvim_set_current_buf(buf)
-   end
-end
-
-return M
-
